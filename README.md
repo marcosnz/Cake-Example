@@ -1,14 +1,14 @@
 #TL;DR
 To see how easy it is to get a build running with Cake
 
-1. Clone this repo (which has no Cake files)
+* Clone this repo (which has no Cake files)
 
-2. Run this powershell  to get the 2 files required to bootstrap the build then run the build:
+* Run this powershell  to get the 2 files required to bootstrap the build then run the build:
 	```PowerShell
 
 	"build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
 	```
-3. Run the PS script ./Build.ps1
+* Run the PS script ./Build.ps1
 
 
 Note, you don't *have* to use powershell to use Cake. I just love that I can add 2 small files to my repo and that's all I need for the build process to work.
