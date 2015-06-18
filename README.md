@@ -1,3 +1,14 @@
+#TL;DR
+To see how easy it is to get a build running with Cake
+1. Clone this repo (which has no Cake files)
+2. Run this powershell  to get the 2 files required to bootstrap the build then run the build:
+```PowerShell
+"build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
+```
+3. Run the PS script ./Build.ps1
+
+Note, you don't *have* to use powershell to use Cake. I just love that I can add 2 small files to my repo and that's all I need for the build process to work.
+
 #Cake Example
 
 Cake (C# Make) is a build automation system with a C# DSL to do things like compiling code, copy files/folders, running unit tests, compress files and build NuGet packages.
@@ -28,12 +39,13 @@ You need 2 files for a build (these will all you'll have to commit to you repo t
 * build.cake
   * This is the actual build script. It doesn't have to be named this but this will be found by default.
 
-An easy way to get these files is to download them from the [Cake Bootstrapper](https://github.com/cake-build/bootstrapper). 
+An easy way to get these files is to download them using powershell. 
 Open powershell, CD to the root of your repo and execute this command (this will not execute the powershell script, just download it):
 ```PowerShell
 "build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
 ```
-Other ways to get the files can be found on the [Getting Started](http://cakebuild.net/getting-started/) page on cakebuild.net
+This downloads the files from [Cake Bootstrapper](https://github.com/cake-build/bootstrapper)
+Other ways to get the files can be found on the [Getting Started](http://cakebuild.net/getting-started/) page on [cakebuild.net](http://cakebuild.net)
 ###3. Run the build script
 Still in powershell execute the script. 
 ```PowerShell
@@ -59,7 +71,7 @@ This is using MSTest but out of the box you have XUnit and NUnit test helpers as
 
 Adding the target doesn't necessarily run it unless another target is dependent on it or you call it explicitly.
 
-In our case we can just change the default task to be dependent on our test task (which is dependent on the build task):
+In our case we can just change the default task to be dependent on our test task (which in turn is dependent on the build task):
 ```CSharp
 Task("Default")
     .IsDependentOn("Run-Unit-Tests");
