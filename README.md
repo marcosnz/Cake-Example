@@ -44,3 +44,27 @@ The script will detect that you don't have cake and download it. It will then ru
 
 
 Congratulations, you've run you first Cake script!
+
+###4. Bonus points! - run the tests
+The script is a fairly bare-bones implementation. But extending it is easy. For instance to run the extensive unit tests for the awesome application you need to add a test target:
+```CSharp
+Task("Run-Unit-Tests")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    MSTest("./src/**/bin/" + configuration + "/*Test.dll");
+});
+```
+This is using MSTest but out of the box you have XUnit and NUnit test helpers as well.
+
+Adding the target doesn't necessarily run it unless another target is dependent on it or you call it explicitly.
+
+In our case we can just change the default task to be dependent on our test task (which is dependent on the build task):
+```CSharp
+Task("Default")
+    .IsDependentOn("Run-Unit-Tests");
+```
+Running the build now will run the tests after building...
+```PowerShell
+.\build.ps1
+```
