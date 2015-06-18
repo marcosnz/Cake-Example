@@ -1,9 +1,9 @@
 #TL;DR
-To see how easy it is to get a build running with Cake
+To see how easy it is to get a build running with [Cake](https://github.com/cake-build/cake)
 
 * Clone this repo (which has no Cake files)
 
-* Run this powershell  to get the 2 files required to bootstrap the build then run the build:
+* Run this powershell  to get the 2 files required to bootstrap the build:
 	```PowerShell
 
 	"build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
@@ -13,7 +13,9 @@ To see how easy it is to get a build running with Cake
 
 Note, you don't *have* to use powershell to use Cake. I just love that I can add 2 small files to my repo and that's all I need for the build process to work.
 
-#Cake Example
+#The slightly longer version
+
+Here's some info about [Cake](https://github.com/cake-build/cake):
 
 Cake (C# Make) is a build automation system with a C# DSL to do things like compiling code, copy files/folders, running unit tests, compress files and build NuGet packages.
 
