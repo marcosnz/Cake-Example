@@ -6,7 +6,9 @@ To see how easy it is to get a build running with [Cake](https://github.com/cake
 * Run this powershell  to get the 2 files required to bootstrap the build:
 	```PowerShell
 
-	"build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
+	Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/resources/develop/build.ps1" > build.ps1
+	Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/build.cake" > build.cake
+
 	```
 * Run the PS script ./Build.ps1
 
