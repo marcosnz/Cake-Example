@@ -51,7 +51,7 @@ Open powershell, CD to the root of your repo and execute this command (this will
 "build.ps1","build.cake"|%{Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cake-build/bootstrapper/master/res/scripts/$($_)" -OutFile $_}
 ```
 This downloads the files from [Cake Bootstrapper](https://github.com/cake-build/bootstrapper)
-Other ways to get the files can be found on the [Getting Started](http://cakebuild.net/getting-started/) page on [cakebuild.net](http://cakebuild.net)
+Other ways to get the files can be found on the [Getting Started](https://cakebuild.net/docs/tutorials/getting-started/) page on [cakebuild.net](http://cakebuild.net)
 ###3. Run the build script
 Still in powershell execute the script. 
 ```PowerShell
