@@ -1,4 +1,4 @@
-#TL;DR
+# TL;DR
 To see how easy it is to get a build running with [Cake](https://github.com/cake-build/cake)
 
 * Clone this repo (which has no Cake files)
@@ -13,7 +13,7 @@ To see how easy it is to get a build running with [Cake](https://github.com/cake
 
 Note, you don't *have* to use powershell to use Cake. I just love that I can add 2 small files to my repo and that's all I need for the build process to work.
 
-#The slightly longer version
+# The slightly longer version
 
 Here's some info about [Cake](https://github.com/cake-build/cake):
 
@@ -28,7 +28,7 @@ Cake (C# Make) is a build automation system with a C# DSL to do things like comp
 
 [![Join the chat at https://gitter.im/cake-build/cake](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cake-build/cake?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##So what's this Repo?
+## So what's this Repo?
 
 I have just started using Cake and it took me a little (not long) time to figure out what I needed to start my build process. It turns out that it's hardly anything and the steps are simple. This is my attempt to document that.
 
@@ -36,9 +36,9 @@ This repo has a very simple Hello World C# Console solution with a Nuget depende
 
 By following these steps you can have it building with Cake in a few minutes
 
-###1. Clone this repo 
+### 1. Clone this repo 
 if you haven't already.
-###2. Get the required files
+### 2. Get the required files
 You need 2 files for a build (these will all you'll have to commit to you repo to use Cake):
 * build.ps1
   * This is a bootstrapper powershell script that ensures you have Cake and required dependencies installed.
@@ -52,7 +52,7 @@ Open powershell, CD to the root of your repo and execute this command (this will
 ```
 This downloads the files from [Cake Bootstrapper](https://github.com/cake-build/bootstrapper)
 Other ways to get the files can be found on the [Getting Started](http://cakebuild.net/getting-started/) page on [cakebuild.net](http://cakebuild.net)
-###3. Run the build script
+### 3. Run the build script
 Still in powershell execute the script. 
 ```PowerShell
 .\build.ps1
@@ -63,7 +63,7 @@ The script will detect that you don't have cake and download it. It will then ru
 
 Congratulations, you've run you first Cake script!
 
-###4. Bonus points! - run the tests
+### 4. Bonus points! - run the tests
 The script is a fairly bare-bones implementation. But extending it is easy. For instance to run the extensive unit tests for the awesome application you need to add a test target:
 ```CSharp
 Task("Run-Unit-Tests")
